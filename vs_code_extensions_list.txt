@@ -13,3 +13,8 @@ ms-azuretools.vscode-docker
 esbenp.prettier-vscode
 mechatroner.rainbow-csv
 asvetliakov.vscode-neovim
+ms-python.black-formatter
+ms-python.debugpy
+ms-python.isort
+ms-python.python
+ms-python.vscode-pylance
