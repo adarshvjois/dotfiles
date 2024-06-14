@@ -20,9 +20,15 @@ NC='\e[0m'
 # https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html
 unset PROMPT_COMMAND
 export PS1="🦈  \W \$ "
+function is_interactive_shell() {
+	# https://www.gnu.org/software/bash/manual/html_node/Is-this-Shell-Interactive_003f.html
+	[[ "$-" =~ "i" ]]
+}
+if is_interactive_shell; then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
 
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
 
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 export WORKON_HOME=~/Envs
