@@ -20,3 +20,19 @@ NC='\e[0m'
 # https://www.gnu.org/software/bash/manual/html_node/Controlling-the-Prompt.html
 unset PROMPT_COMMAND
 export PS1="🦈  \W \$ "
+
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+export WORKON_HOME=~/Envs
+export CODE=~/code
+export FALKOR=$CODE/falkor
+export PYTHONPATH=$PYTHONPATH:$FALKOR
+export WORKON_FALKOR="workon falkor"
+alias cdfalkor="cd $FALKOR"
+alias wf=$WORKON_FALKOR
+alias caputil="$DEFAULT_WORKON $FALKOR/scripts/backend/capture_util2.py -- index.json"                               
+alias tattoo_create_index="$DEFAULT_WORKON $FALKOR/scripts/backend/capture_util2.py -- --print-vionav --print-fusion"
+alias lookup="$WORKON_FALKOR && ${CODE}/falkor/scripts/tattoo/lookup.py"
+alias toopy="python $FALKOR/scripts/gui/toopy.py"
