@@ -21,8 +21,11 @@ NC='\e[0m'
 unset PROMPT_COMMAND
 export PS1="🦈  \W \$ "
 
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+if [[ $- = *i* ]]
+then
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
 
 source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 export WORKON_HOME=~/Envs
